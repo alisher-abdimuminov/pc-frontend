@@ -120,7 +120,7 @@ definePageMeta({
 
         <Alert>
             <AlertDescription>
-                Tizim test holatida ishlamoqda. Muammolar bo'lsa
+                <span>Tizim test holatida ishlamoqda. Agar tizimda muammo bo'lsa</span>
                 <span class="text-primary">+998 (88) 910-79-05</span>
             </AlertDescription>
         </Alert>
