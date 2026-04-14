@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LucideCheck, LucideLoader2, LucideMapPin, LucideServerCrash, LucideXCircle } from "lucide-vue-next";
+import { LucideCheck, LucideLoader2, LucideMapPin, LucideServerCrash, LucideX, LucideXCircle } from "lucide-vue-next";
 import type { IArea, IAttendanceGroup, IResponse, LocationStatus } from "~/types";
 
 
@@ -140,8 +140,10 @@ definePageMeta({
                     <TimelineDate>08:00</TimelineDate>
                     <TimelineTitle>Birinchi juftlik</TimelineTitle>
                     <TimelineIndicator
-                        class="group-data-completed/timeline-item:border-green-500 group-data-completed/timeline-item:text-primary-foreground flex size-6 items-center justify-center group-data-[orientation=vertical]/timeline:-left-7">
-                        <LucideCheck :size="16" class="group-not-data-completed/timeline-item:hidden" />
+                        class="group-data-completed/timeline-item:border-primary group-data-completed/timeline-item:text-primary-foreground flex size-6 items-center justify-center group-data-[orientation=vertical]/timeline:-left-7">
+                        <LucideCheck v-if="attendanceGroup.step_1.is_arrived" :size="16"
+                            class="group-not-data-completed/timeline-item:hidden text-green-500" />
+                        <LucideX v-else :size="16" class="group-not-data-completed/timeline-item:hidden text-red-500" />
                     </TimelineIndicator>
                 </TimelineHeader>
                 <TimelineContent>
@@ -161,7 +163,7 @@ definePageMeta({
                     <TimelineDate>10:00</TimelineDate>
                     <TimelineTitle>Ikkinchi juftlik</TimelineTitle>
                     <TimelineIndicator
-                        class="group-data-completed/timeline-item:bg-green-500 group-data-completed/timeline-item:text-primary-foreground flex size-6 items-center justify-center group-data-completed/timeline-item:border-none group-data-[orientation=vertical]/timeline:-left-7">
+                        class=" group-data-completed/timeline-item:text-primary-foreground flex size-6 items-center justify-center group-data-[orientation=vertical]/timeline:-left-7">
                         <LucideCheck :size="16" class="group-not-data-completed/timeline-item:hidden" />
                     </TimelineIndicator>
                 </TimelineHeader>
