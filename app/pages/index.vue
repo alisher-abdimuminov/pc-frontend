@@ -140,10 +140,11 @@ definePageMeta({
                     <TimelineDate>08:00</TimelineDate>
                     <TimelineTitle>Birinchi juftlik</TimelineTitle>
                     <TimelineIndicator
-                        class="group-data-completed/timeline-item:border-primary group-data-completed/timeline-item:text-primary-foreground flex size-6 items-center justify-center group-data-[orientation=vertical]/timeline:-left-7">
+                        class="group-data-completed/timeline-item:text-primary-foreground flex size-6 items-center justify-center group-data-[orientation=vertical]/timeline:-left-7"
+                        :class="attendanceGroup?.step_1.is_arrived ? 'bg-red-500' : 'bg-green-500'">
                         <LucideCheck v-if="attendanceGroup.step_1.is_arrived" :size="16"
-                            class="group-not-data-completed/timeline-item:hidden text-green-500" />
-                        <LucideX v-else :size="16" class="group-not-data-completed/timeline-item:hidden text-red-500" />
+                            class="group-not-data-completed/timeline-item:hidden text-primary" />
+                        <LucideX v-else :size="16" class="group-not-data-completed/timeline-item:hidden text-primary" />
                     </TimelineIndicator>
                 </TimelineHeader>
                 <TimelineContent>
