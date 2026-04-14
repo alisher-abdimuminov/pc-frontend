@@ -120,8 +120,8 @@ definePageMeta({
 
         <Alert>
             <AlertDescription>
-                <span>Tizim test holatida ishlamoqda. Agar tizimda muammo bo'lsa</span>
-                <span class="text-primary">+998 (88) 910-79-05</span>
+                <span>Tizim test holatida ishlamoqda. Agar tizimda muammo bo'lsa </span>
+                <NuxtLink to="https://t.me/alioghuzkhan" class="text-primary">Telegram</NuxtLink>
             </AlertDescription>
         </Alert>
 
