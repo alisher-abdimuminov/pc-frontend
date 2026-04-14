@@ -5,13 +5,27 @@ import type { IArea, IAttendanceGroup, IResponse, LocationStatus } from "~/types
 
 const { user } = useAuth();
 
-const step = ref(1);
 const latitude = ref(0);
 const longitude = ref(0);
 const isLoading = ref(false);
 const area = ref<IArea | null>(null);
 const attendanceGroup = ref<IAttendanceGroup | null>(null);
 const locationStatus = ref<LocationStatus>("loading");
+
+
+// computed
+const step = computed(() => {
+    const now = new Date();
+    const hour = now.getHours();
+
+    if (hour < 10) return 1;
+
+    if (hour >= 10 && hour < 12) return 2;
+
+    if (hour >= 12) return 3;
+
+    return 1;
+});
 
 // functions
 const success = async (position: GeolocationPosition) => {
@@ -53,14 +67,6 @@ const fetchAttendanceGroup = async () => {
         console.log(response);
         if (response.status === "success") {
             attendanceGroup.value = response.data.a_group;
-
-            if (attendanceGroup.value && attendanceGroup.value.step_1.is_available) {
-                step.value = 1;
-            } else if (attendanceGroup.value.step_2.is_available) {
-                step.value = 2;
-            } else if (attendanceGroup.value.step_3.is_available) {
-                step.value = 3;
-            }
         } else {
 
         }
@@ -138,8 +144,12 @@ definePageMeta({
                     </TimelineIndicator>
                 </TimelineHeader>
                 <TimelineContent>
-                    <p v-if="attendanceGroup.step_1">{{ attendanceGroup.step_1.created }}</p>
-                    <Button @click="navigateTo({ name: 'attendance' })" v-else>Davomatdan o'tish</Button>
+                    <p v-if="attendanceGroup.step_1.created">{{ attendanceGroup.step_1.created }}</p>
+                    <Button
+                        v-if="step === 1 && attendanceGroup.step_1.is_available && !attendanceGroup.step_1.is_arrived"
+                        @click="navigateTo({ name: 'attendance' })">
+                        Davomatdan o'tish
+                    </Button>
                 </TimelineContent>
             </TimelineItem>
             <TimelineItem :key="2" :step="2" class="group-data-[orientation=vertical]/timeline:ms-10">
@@ -154,9 +164,9 @@ definePageMeta({
                     </TimelineIndicator>
                 </TimelineHeader>
                 <TimelineContent>
-                    <p v-if="attendanceGroup?.step_2">{{ attendanceGroup.step_2.created }}</p>
+                    <p v-if="attendanceGroup.step_2.created">{{ attendanceGroup.step_2.created }}</p>
                     <Button @click="navigateTo({ name: 'attendance' })"
-                        v-else-if="attendanceGroup.step_2 && attendanceGroup.step_2.is_available">
+                        v-if="step === 2 && attendanceGroup.step_2.is_available && !attendanceGroup.step_2.is_arrived">
                         Davomatdan o'tish
                     </Button>
                 </TimelineContent>
@@ -174,7 +184,8 @@ definePageMeta({
                 </TimelineHeader>
                 <TimelineContent>
                     <p v-if="attendanceGroup.step_3.created">{{ attendanceGroup.step_3.created }}</p>
-                    <Button @click="navigateTo({ name: 'attendance' })" v-if="attendanceGroup.step_3.is_available">
+                    <Button @click="navigateTo({ name: 'attendance' })"
+                        v-if="step === 3 && attendanceGroup.step_3.is_available && !attendanceGroup.step_3.is_arrived">
                         Davomatdan o'tish
                     </Button>
                 </TimelineContent>

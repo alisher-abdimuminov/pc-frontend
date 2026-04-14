@@ -8,6 +8,7 @@ export interface IArea {
 export interface IAttendance {
     status: "arrived" | "failed" | "processing";
     is_available: boolean;
+    is_arrived: boolean;
     created: string;
     area: IArea;
 }
