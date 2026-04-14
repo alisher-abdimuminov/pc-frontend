@@ -4,11 +4,11 @@ import type { IResponse, ISchedule } from "~/types";
 
 const { user } = useAuth();
 
-const schedule = ref < ISchedule[] > ([]);
+const schedule = ref<ISchedule[]>([]);
 
 
 const getSchedule = async () => {
-    let response = await $fetch < IResponse < { "schedule": ISchedule[] } >> (apify("student/schedule"), {
+    let response = await $fetch<IResponse<{ "schedule": ISchedule[]; }>>(apify("student/schedule"), {
         headers: {
             "Authorization": `Token ${user.value?.token}`
         }
@@ -18,6 +18,10 @@ const getSchedule = async () => {
         schedule.value = response.data.schedule;
     }
 };
+
+onMounted(() => {
+    getSchedule();
+});
 </script>
 
 <template>
