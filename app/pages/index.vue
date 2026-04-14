@@ -132,6 +132,7 @@ definePageMeta({
         </Alert>
 
         <Timeline :default-value="step" v-if="attendanceGroup">
+            <!-- step 1 -->
             <TimelineItem :key="1" :step="1" class="group-data-[orientation=vertical]/timeline:ms-10">
                 <TimelineHeader>
                     <TimelineSeparator
@@ -139,7 +140,7 @@ definePageMeta({
                     <TimelineDate>08:00</TimelineDate>
                     <TimelineTitle>Birinchi juftlik</TimelineTitle>
                     <TimelineIndicator
-                        class="group-data-completed/timeline-item:bg-green-500 group-data-completed/timeline-item:text-primary-foreground flex size-6 items-center justify-center group-data-completed/timeline-item:border-none group-data-[orientation=vertical]/timeline:-left-7">
+                        class="group-data-completed/timeline-item:border-green-500 group-data-completed/timeline-item:text-primary-foreground flex size-6 items-center justify-center group-data-completed/timeline-item:border-none group-data-[orientation=vertical]/timeline:-left-7">
                         <LucideCheck :size="16" class="group-not-data-completed/timeline-item:hidden" />
                     </TimelineIndicator>
                 </TimelineHeader>
@@ -152,6 +153,7 @@ definePageMeta({
                     </Button>
                 </TimelineContent>
             </TimelineItem>
+            <!-- step 2 -->
             <TimelineItem :key="2" :step="2" class="group-data-[orientation=vertical]/timeline:ms-10">
                 <TimelineHeader>
                     <TimelineSeparator
@@ -171,6 +173,7 @@ definePageMeta({
                     </Button>
                 </TimelineContent>
             </TimelineItem>
+            <!-- step 3 -->
             <TimelineItem :key="3" :step="3" class="group-data-[orientation=vertical]/timeline:ms-10">
                 <TimelineHeader>
                     <TimelineSeparator
