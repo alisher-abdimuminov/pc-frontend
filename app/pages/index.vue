@@ -173,9 +173,8 @@ definePageMeta({
                     </TimelineIndicator>
                 </TimelineHeader>
                 <TimelineContent>
-                    <p v-if="attendanceGroup?.step_3">{{ attendanceGroup.step_3.created }}</p>
-                    <Button @click="navigateTo({ name: 'attendance' })"
-                        v-else-if="attendanceGroup.step_3 && attendanceGroup.step_3.is_available">
+                    <p v-if="attendanceGroup.step_3.created">{{ attendanceGroup.step_3.created }}</p>
+                    <Button @click="navigateTo({ name: 'attendance' })" v-if="attendanceGroup.step_3.is_available">
                         Davomatdan o'tish
                     </Button>
                 </TimelineContent>
