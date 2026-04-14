@@ -5,6 +5,11 @@ export interface IArea {
     name: string;
 }
 
+export interface ISchedule {
+    area: IArea;
+    weekday: number;
+}
+
 export interface IAttendance {
     status: "arrived" | "failed" | "processing";
     is_available: boolean;

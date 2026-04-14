@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LucideCalendar, LucideHome, LucideListChecks, LucideLogOut, LucideMoonStar, LucideSun, LucideUser } from "lucide-vue-next";
+import { LucideCalendar, LucideCalendarDays, LucideHome, LucideListChecks, LucideLogOut, LucideMoonStar, LucideSun, LucideUser } from "lucide-vue-next";
 
 
 const { theme } = useTheme();
@@ -17,6 +17,10 @@ const { user, logout } = useAuth();
                 <NuxtLink :to="{ name: 'tasks' }" class="text-muted-foreground"
                     :class="{ 'text-primary': $route.name === 'tasks' }">
                     <LucideListChecks class="hover:size-10 transition-all duration-300" />
+                </NuxtLink>
+                <NuxtLink :to="{ name: 'schedule' }" class="text-muted-foreground"
+                    :class="{ 'text-primary': $route.name === 'schedule' }">
+                    <LucideCalendarDays class="hover:size-10 transition-all duration-300" />
                 </NuxtLink>
                 <div class="text-muted-foreground hover:text-primary"
                     @click="theme = theme === 'dark' ? 'light' : 'dark'">
