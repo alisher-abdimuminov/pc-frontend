@@ -112,7 +112,7 @@ definePageMeta({
                 <p>🥳 Bugun dars yo'q</p>
             </template>
         </div>
-        <p class="text-2xl">Salom 👋 Alisher</p>
+        <p class="text-2xl">Salom 👋 {{ user?.full_name }}</p>
 
         <ClientOnly>
             <FlipClock size="sm" />
