@@ -34,6 +34,7 @@ onMounted(() => {
                 <span v-if="s.weekday === 3">Payshanba</span>
                 <span v-if="s.weekday === 4">Juma</span>
                 <span v-if="s.weekday === 5">Shanba</span>
+                &nbsp;
                 <span>{{ s.area.name }}</span>
             </AlertDescription>
         </Alert>
