@@ -28,8 +28,13 @@ onMounted(() => {
     <div class="p-10 flex flex-col gap-5">
         <Alert v-for="s in schedule">
             <AlertDescription>
-                {{ s.area }}
-                {{ s.weekday }}
+                <span v-if="s.weekday === 0">Dushanba</span>
+                <span v-if="s.weekday === 1">Seshanba</span>
+                <span v-if="s.weekday === 2">Chorshanba</span>
+                <span v-if="s.weekday === 3">Payshanba</span>
+                <span v-if="s.weekday === 4">Juma</span>
+                <span v-if="s.weekday === 5">Shanba</span>
+                <span>{{ s.area.name }}</span>
             </AlertDescription>
         </Alert>
     </div>
