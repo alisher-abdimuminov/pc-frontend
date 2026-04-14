@@ -140,7 +140,7 @@ definePageMeta({
                     <TimelineDate>08:00</TimelineDate>
                     <TimelineTitle>Birinchi juftlik</TimelineTitle>
                     <TimelineIndicator
-                        class="group-data-completed/timeline-item:border-green-500 group-data-completed/timeline-item:text-primary-foreground flex size-6 items-center justify-center group-data-completed/timeline-item:border-none group-data-[orientation=vertical]/timeline:-left-7">
+                        class="group-data-completed/timeline-item:border-green-500 group-data-completed/timeline-item:text-primary-foreground flex size-6 items-center justify-center group-data-[orientation=vertical]/timeline:-left-7">
                         <LucideCheck :size="16" class="group-not-data-completed/timeline-item:hidden" />
                     </TimelineIndicator>
                 </TimelineHeader>
