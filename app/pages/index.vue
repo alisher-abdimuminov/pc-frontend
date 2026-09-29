@@ -2,6 +2,8 @@
 import { useMiniApp } from "vue-tg";
 
 const miniApp = useMiniApp();
+
+miniApp.ready();
 </script>
 
 <template>
