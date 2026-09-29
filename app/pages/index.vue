@@ -1,7 +1,10 @@
 <script setup lang="ts">
-const initData = useInitData();
+import { useMiniApp } from "vue-tg";
+
+const miniApp = useMiniApp();
 </script>
 
 <template>
-	<div>data: {{ initData }}</div>
+	<div>data: {{ miniApp.initData }}</div>
+	<div>data: {{ miniApp.initDataUnsafe }}</div>
 </template>
