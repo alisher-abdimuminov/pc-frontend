@@ -900,7 +900,7 @@ onBeforeUnmount(() => {
 				</div>
 
 				<div
-					v-if="cameraWorking"
+					v-show="cameraWorking || cameraLoading"
 					class="mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-2xl bg-black"
 				>
 					<video
