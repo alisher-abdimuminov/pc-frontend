@@ -7,6 +7,8 @@ miniApp.ready();
 </script>
 
 <template>
-	<div>data: {{ miniApp.initData }}</div>
-	<div>data: {{ miniApp.initDataUnsafe }}</div>
+	<ClientOnly>
+		<div>data: {{ miniApp.initData }}</div>
+		<div>data: {{ miniApp.initDataUnsafe }}</div>
+	</ClientOnly>
 </template>
