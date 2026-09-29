@@ -3,5 +3,5 @@ const initData = useInitData();
 </script>
 
 <template>
-	<div>data: {{ JSON.stringify(initData) }}</div>
+	<div>data: {{ initData }}</div>
 </template>
