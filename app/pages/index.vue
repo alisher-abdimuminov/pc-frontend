@@ -26,7 +26,5 @@ onBeforeUnmount(() => {
 			tma.locationAccessGranted ? "Ruxsat berilgan" : "Ruxsat berilmagan"
 		}}
 	</div>
-	<div>
-		{{ telegramUser }}
-	</div>
+	<div>initdata: {{ tma.initData }}</div>
 </template>
