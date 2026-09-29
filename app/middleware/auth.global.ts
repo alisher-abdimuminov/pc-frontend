@@ -1,4 +1,6 @@
 export default defineNuxtRouteMiddleware(async (to) => {
+	// for webapp testing
+	if (to.path === "/") return;
 	if (to.path.startsWith("/auth/")) return;
 	const auth = useAuthStore();
 	if (!auth.access) return navigateTo({ name: "auth-login" });
