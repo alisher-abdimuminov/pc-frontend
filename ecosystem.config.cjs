@@ -6,7 +6,7 @@ module.exports = {
       exec_mode: "fork",
       script: "bun run .output/server/index.mjs",
       env: {
-        NUXT_PUBLIC_API_BASE: "https://api.pc.samdpi.uz/api",
+        NUXT_PUBLIC_API_BASE: "https://api.pc.samdpi.uz/",
         NUXT_PUBLIC_HEMIS_TEACHER_URL:
           "https://hemis.samdpi.uz/oauth/authorize",
         NUXT_PUBLIC_HEMIS_STUDENT_URL:
