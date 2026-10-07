@@ -50,9 +50,12 @@ async function syncGroups() {
   syncing.value = true;
 
   try {
-    const response = await api.get<any>("/api/attendance/groups/sync-groups/", {
-      method: "POST",
-    });
+    const response = await api.post<any>(
+      "/api/attendance/groups/sync-groups/",
+      {
+        method: "POST",
+      },
+    );
 
     groups.value = await api.get<GroupItem[]>("/api/attendance/groups/");
   } finally {
